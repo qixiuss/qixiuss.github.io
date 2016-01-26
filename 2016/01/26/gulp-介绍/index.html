@@ -6,18 +6,30 @@
   <title>gulp 介绍 | 前端博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="gulp是什么？gulp是一个基于流的构建系统，可以自动执行指定的任务可以自动完成javascript/coffee/sass/less等文件的测试，检查，合并，压缩，格式化，部署文件生产等，同时可以监听文件改动后重复指定的这些步骤
-安装gulp1npm install -g gulp&amp;#9;&amp;#9;//&amp;#20840;&amp;#23616;&amp;#23433;&amp;#35013;&amp;#10;npm instal">
+gulp原理 &amp;amp; 流程gulp能做什么
+合并css/javascript等
+压缩html/css/javascript等
+合并精灵图/iconfont等
+预编">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gulp 介绍">
 <meta property="og:url" content="http://yoursite.com/2016/01/26/gulp-介绍/index.html">
 <meta property="og:site_name" content="前端博客">
 <meta property="og:description" content="gulp是什么？gulp是一个基于流的构建系统，可以自动执行指定的任务可以自动完成javascript/coffee/sass/less等文件的测试，检查，合并，压缩，格式化，部署文件生产等，同时可以监听文件改动后重复指定的这些步骤
-安装gulp1npm install -g gulp&amp;#9;&amp;#9;//&amp;#20840;&amp;#23616;&amp;#23433;&amp;#35013;&amp;#10;npm instal">
-<meta property="og:updated_time" content="2016-01-26T03:08:56.000Z">
+gulp原理 &amp;amp; 流程gulp能做什么
+合并css/javascript等
+压缩html/css/javascript等
+合并精灵图/iconfont等
+预编">
+<meta property="og:updated_time" content="2016-01-26T03:37:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp 介绍">
 <meta name="twitter:description" content="gulp是什么？gulp是一个基于流的构建系统，可以自动执行指定的任务可以自动完成javascript/coffee/sass/less等文件的测试，检查，合并，压缩，格式化，部署文件生产等，同时可以监听文件改动后重复指定的这些步骤
-安装gulp1npm install -g gulp&amp;#9;&amp;#9;//&amp;#20840;&amp;#23616;&amp;#23433;&amp;#35013;&amp;#10;npm instal">
+gulp原理 &amp;amp; 流程gulp能做什么
+合并css/javascript等
+压缩html/css/javascript等
+合并精灵图/iconfont等
+预编">
   
     <link rel="alternate" href="/atom.xml" title="前端博客" type="application/atom+xml">
   
@@ -87,9 +99,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="gulp_u662F_u4EC0_u4E48_uFF1F"><a href="#gulp_u662F_u4EC0_u4E48_uFF1F" class="headerlink" title="gulp是什么？"></a>gulp是什么？</h3><p>gulp是一个基于流的构建系统，可以自动执行指定的任务<br>可以自动完成javascript/coffee/sass/less等文件的测试，检查，合并，压缩，格式化，部署文件生产等，同时可以监听文件改动后重复指定的这些步骤</p>
-<h4 id="u5B89_u88C5gulp"><a href="#u5B89_u88C5gulp" class="headerlink" title="安装gulp"></a>安装gulp</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g gulp&#9;&#9;//&#20840;&#23616;&#23433;&#35013;&#10;npm install --save-dev gulp&#9;//&#23433;&#35013;&#21040;&#24403;&#21069;&#39033;&#30446;&#24182;&#22312;package.json&#20013;&#28155;&#21152;&#20381;&#36182;</span><br></pre></td></tr></table></figure>
-<h4 id="u914D_u7F6E_u6587_u4EF6_gulpfile-js"><a href="#u914D_u7F6E_u6587_u4EF6_gulpfile-js" class="headerlink" title="配置文件 gulpfile.js"></a>配置文件 gulpfile.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&#39;gulp&#39;);&#10;var uglify = require(&#39;gulp-uglify&#39;);&#10;&#10;gulp.task(&#39;minify&#39;, function () &#123;&#10;  gulp.src(&#39;js/app.js&#39;)&#10;    .pipe(uglify())&#10;    .pipe(gulp.dest(&#39;build&#39;))&#10;&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="5_u4E2A_u65B9_u6CD5"><a href="#5_u4E2A_u65B9_u6CD5" class="headerlink" title="5个方法"></a>5个方法</h4><ol>
+<h3 id="gulp_u539F_u7406__26amp_3B__u6D41_u7A0B"><a href="#gulp_u539F_u7406__26amp_3B__u6D41_u7A0B" class="headerlink" title="gulp原理 &amp; 流程"></a>gulp原理 &amp; 流程</h3><h3 id="gulp_u80FD_u505A_u4EC0_u4E48"><a href="#gulp_u80FD_u505A_u4EC0_u4E48" class="headerlink" title="gulp能做什么"></a>gulp能做什么</h3><ol>
+<li>合并css/javascript等</li>
+<li>压缩html/css/javascript等</li>
+<li>合并精灵图/iconfont等</li>
+<li>预编译less,sass,coffeescript，es6等</li>
+<li>使用postcss等工具，比如uncss/autoprefixer</li>
+<li>压缩jpg/png图片</li>
+<li>使用条件编译输出不同的结果，比如app页面和mobile页面</li>
+<li>实时重载/css注入，提高开发速度</li>
+<li>打包生成线上版本代码</li>
+<li>等等…</li>
+</ol>
+<h3 id="u5B89_u88C5gulp"><a href="#u5B89_u88C5gulp" class="headerlink" title="安装gulp"></a>安装gulp</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g gulp&#9;&#9;//&#20840;&#23616;&#23433;&#35013;&#10;npm install --save-dev gulp&#9;//&#23433;&#35013;&#21040;&#24403;&#21069;&#39033;&#30446;&#24182;&#22312;package.json&#20013;&#28155;&#21152;&#20381;&#36182;</span><br></pre></td></tr></table></figure>
+<h3 id="u914D_u7F6E_u6587_u4EF6_gulpfile-js"><a href="#u914D_u7F6E_u6587_u4EF6_gulpfile-js" class="headerlink" title="配置文件 gulpfile.js"></a>配置文件 gulpfile.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&#39;gulp&#39;);&#10;var uglify = require(&#39;gulp-uglify&#39;);&#10;&#10;gulp.task(&#39;minify&#39;, function () &#123;&#10;  gulp.src(&#39;js/app.js&#39;)&#10;    .pipe(uglify())&#10;    .pipe(gulp.dest(&#39;build&#39;))&#10;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="5_u4E2A_u65B9_u6CD5"><a href="#5_u4E2A_u65B9_u6CD5" class="headerlink" title="5个方法"></a>5个方法</h3><ol>
 <li>task</li>
 <li>run</li>
 <li>watch</li>
